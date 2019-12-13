@@ -77,8 +77,6 @@ ngrok http 5000
 - use "payload" as the format for specific platform
 
 > https://developers.line.biz/en/reference/messaging-api/#buttons
-> 
-
 ```python
    "fulfillmentMessages": [
       {
