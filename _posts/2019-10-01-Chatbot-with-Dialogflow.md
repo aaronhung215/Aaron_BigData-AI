@@ -33,7 +33,7 @@ This is for developing an intent-based Chatbot using Dialogflow platform and a w
 
 ## 運用Flask 建立 Webhook
 
-```
+```bash
 @app.route("/")
 ```
 > https://lvraikkonen.github.io/2017/07/26/Flask%20%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%832:%20%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3@app.route()/
@@ -53,7 +53,7 @@ ngrok http 5000
 
 - fullfillmentmessage
 > https://cloud.google.com/dialogflow/docs/fulfillment-how?hl=zh-tw
-```python=
+```python
       "fulfillmentText": "This is a text response",
       "fulfillmentMessages": [
         {
