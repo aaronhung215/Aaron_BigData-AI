@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Github Branch for Gitpage with Hackmd
-date: YYYY-MM-DD HH:MM:SS +/-TTTT
+date: {{ page.date | date: "%Y-%m-%d" }}
 categories: Github Hackmd Branch
 comments: true
 ---
