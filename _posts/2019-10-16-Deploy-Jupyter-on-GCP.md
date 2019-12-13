@@ -2,7 +2,6 @@
 layout: post
 title: Deploy Jupyter on Google Compute Engine
 date: 2019-09-26
-excerpt: ""
 categories: Python IDE
 comments: true
 ---
