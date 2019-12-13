@@ -2,7 +2,7 @@
 layout: post
 title: Chatbot with Dialogflow
 date: 2019-10-01
-categories: Chatbot AI LINE Dialogflow
+categories: Chatbot LINE Dialogflow
 comments: true
 ---
 This is for developing an intent-based Chatbot using Dialogflow platform and a webhook server on Heroku to catch the 3rd party data. It tries to response with a smarter way instead of a fixed response.
