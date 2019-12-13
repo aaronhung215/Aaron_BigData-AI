@@ -2,7 +2,7 @@
 layout: post
 title: Deploy Jupyter on Google Compute Engine
 date: 2019-09-26
-categories: Python IDE
+categories: Python
 comments: true
 ---
 To build up a dev environment on google compute engine with the cloud-base computing resource to solve the insufficient computing resource in local terminal. 
