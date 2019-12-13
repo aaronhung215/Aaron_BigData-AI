@@ -9,7 +9,6 @@ To build up a dev environment on google compute engine with the cloud-base compu
 
 
 
-# Deploy Jupyter on Google Compute Engine
 ## 設定流程
 1. Create a new APP engine
 2. Set static IP
