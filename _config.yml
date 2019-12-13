@@ -1,10 +1,11 @@
-title: Your awesome title
-author: GitHub User
-email: your-email@domain.com
-description: > # this means to ignore newlines until "show_exerpts:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+title: AI, Bigdata and Fintech
+author: Aaron Hung
+email: aaron.hung215@gmail.com
+description: I am Aaron, an AI/Data Scientist with IT engineer skills. I am interested in new technology and have a dream to use it to improve our life and business.Cultivated in financial and internet industries over than 3 years, the chatbot tech and prediction algorithm will be shared here.
+# this means to ignore newlines until "show_exerpts:"
+#  Write an awesome description for your new site here. You can edit this
+#  line in _config.yml. It will appear in your document head meta (for
+#  Google search results) and in your feed.xml site description.
 show_excerpts: true # set to true to show excerpts on the homepage
 
 # Minima date format
@@ -13,15 +14,16 @@ sass:
   sass_dir: _sass
 plainwhite:
   name: Aaron Hung
-  tagline: Data Scientist/Data Planner
+  tagline: Data Scientist
   date_format: "%b %-d, %Y"
   sitemap: true # set to true to generate sitemap.xml content
-
+  disqus_shortname: Aaron
+  analytics_id: 'UA-58024657-6'
   # generate social links in footer
   social_links:
-    twitter: thelehhman
-    github:  freedom079215
-    linkedIn: in/thelehhman
+    line: freedom079215
+    github:  aaronhung215
+    linkedIn: in/aaron-hung-b2007367
     rss: rss
     # dribbble: jekyll
     # facebook: jekyll
@@ -49,8 +51,9 @@ plainwhite:
 # - about.md
 
 # Build settings
-theme: plainwhite
+theme: jekyll-theme-slate
 
 plugins:
   - jekyll-seo-tag
 #  - jekyll-feed
+remote_theme: thelehhman/plainwhite-jekyll
