@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Github Branch for Gitpage with Hackmd
-date: {{page.date}}
+date: page.date
 categories: Github Hackmd Branch
 comments: true
 ---
