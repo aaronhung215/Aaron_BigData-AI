@@ -79,7 +79,7 @@ ngrok http 5000
 > https://developers.line.biz/en/reference/messaging-api/#buttons
 > 
 
-```python=
+```python
    "fulfillmentMessages": [
       {
         "payload": {
@@ -120,7 +120,7 @@ ngrok http 5000
 
 * 先在Context的output設定好要變數名稱，左邊數字為存活時間長度
 * 在希望做後續回應的Intent, 設定Input Context並且將要設定的變數Parameter, set as a Default Value:
-```
+```bash
 #[context_var].parameter
 ```
 
