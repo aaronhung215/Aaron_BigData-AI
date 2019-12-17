@@ -52,7 +52,7 @@ An Online course to learn how to use python to develop NLP.
     >> Address: 123 Main Street
 ```
 
-- Minimum Widths, Alignment and Padding
+#### Minimum Widths, Alignment and Padding
 > You can pass arguments inside a nested set of curly braces to set a minimum width for the field, the alignment and even padding characters.
 
 ```python
@@ -155,3 +155,45 @@ An Online course to learn how to use python to develop NLP.
         print(line, end='')  # the end='' argument removes extra linebreaks
 ```
 
+### Working with PDF
+
+> It's common to use **PyPDF2** to read the text. But it may not work because of the encoding issues or image.
+
+```python
+
+    import PyPDF2
+    
+    #First we open a pdf, then create a reader object for it. Notice how we use the binary method of reading , 'rb', instead of just 'r'.
+    
+    # Notice we read it as a binary with 'rb'
+    f = open('US_Declaration.pdf','rb')
+    
+    pdf_reader = PyPDF2.PdfFileReader(f)
+    
+    pdf_reader.numPages
+    page_one = pdf_reader.getPage(0)
+    
+    #We can then extract the text:
+    page_one_text = page_one.extractText()
+    
+    f.close()
+    
+```
+
+#### Adding to PDFs
+
+```python
+    f = open('US_Declaration.pdf','rb')
+    pdf_reader = PyPDF2.PdfFileReader(f)
+    
+    first_page = pdf_reader.getPage(0)
+    pdf_writer = PyPDF2.PdfFileWriter()
+    pdf_writer.addPage(first_page)
+    
+    pdf_output = open("Some_New_Doc.pdf","wb")
+    pdf_writer.write(pdf_output)
+    
+    pdf_output.close()
+    f.close()
+    
+```
