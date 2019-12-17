@@ -23,12 +23,14 @@ An Online course to learn how to use python to develop NLP.
         - Visualization of POS and NER
 
 ### 安裝環境
+
 ```bash
     conda env create -f nlp_course_env.yml
 ```
 
 ### 基本文字處理
 - 列印文字
+
 ```python
     person = "aaron"
 
@@ -52,6 +54,7 @@ An Online course to learn how to use python to develop NLP.
 
 - Minimum Widths, Alignment and Padding
 > You can pass arguments inside a nested set of curly braces to set a minimum width for the field, the alignment and even padding characters.
+
 ```python
     library = [('Author', 'Topic', 'Pages'), ('Twain', 'Rafting', 601), ('Feynman', 'Physics', 95), ('Hamilton', 'Mythology', 144)]
 
@@ -68,6 +71,7 @@ An Online course to learn how to use python to develop NLP.
 > - Here the first three lines align, except Pages follows a default left-alignment while numbers are right-aligned. Also, the fourth line's page number is pushed to the right as Mythology exceeds the minimum field width of 8. When setting minimum field widths make sure to take the longest item into account.
 > - To set the alignment, use the character < for left-align, ^ for center, > for right.
 > - To set padding, precede the alignment character with the padding character (- and . are common choices).
+
 ```python
     for book in library:
         print(f'{book[0]:{10}} {book[1]:{10}} {book[2]:.>{7}}') # here .> was added
@@ -80,6 +84,7 @@ An Online course to learn how to use python to develop NLP.
 ```
 
 * Date Formating
+
 ```python
     from datetime import datetime
 
@@ -91,6 +96,7 @@ An Online course to learn how to use python to develop NLP.
 
 
 * Ｗorking with Text file
+
 ```python
     #Create a file
     %%writefile test.txt
