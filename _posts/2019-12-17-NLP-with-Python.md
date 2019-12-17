@@ -52,8 +52,6 @@ An Online course to learn how to use python to develop NLP.
 
 - Minimum Widths, Alignment and Padding
 > You can pass arguments inside a nested set of curly braces to set a minimum width for the field, the alignment and even padding characters.
-> 
-
 ```python
     library = [('Author', 'Topic', 'Pages'), ('Twain', 'Rafting', 601), ('Feynman', 'Physics', 95), ('Hamilton', 'Mythology', 144)]
 
@@ -66,6 +64,7 @@ An Online course to learn how to use python to develop NLP.
     Hamilton   Mythology     144    
 
 ```
+
 > - Here the first three lines align, except Pages follows a default left-alignment while numbers are right-aligned. Also, the fourth line's page number is pushed to the right as Mythology exceeds the minimum field width of 8. When setting minimum field widths make sure to take the longest item into account.
 > - To set the alignment, use the character < for left-align, ^ for center, > for right.
 > - To set padding, precede the alignment character with the padding character (- and . are common choices).
@@ -90,11 +89,8 @@ An Online course to learn how to use python to develop NLP.
     >>> January 27, 2018
 ```
 
+
 * Ｗorking with Text file
-
-
-
-
 ```python
     #Create a file
     %%writefile test.txt
