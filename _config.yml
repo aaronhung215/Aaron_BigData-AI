@@ -1,3 +1,7 @@
+kramdown:
+    syntax_highlighter_opts:
+        block:
+            line_numbers: true
 title: AI, Bigdata and Fintech
 author: Aaron Hung
 email: aaron.hung215@gmail.com
@@ -57,13 +61,3 @@ plugins:
   - jekyll-seo-tag
 #  - jekyll-feed
 remote_theme: thelehhman/plainwhite-jekyll
-markdown: kramdown
-kramdown:
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    default_lang: csharp
-    css_class: 'highlight'
-    span:
-      line_numbers: false
-    block:
-      line_numbers: true
