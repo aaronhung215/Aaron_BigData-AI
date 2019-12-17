@@ -29,7 +29,7 @@ An Online course to learn how to use python to develop NLP.
 ```
 
 ### 基本文字處理
-- 列印文字
+#### 列印文字
 
 ```python
     person = "aaron"
@@ -83,7 +83,7 @@ An Online course to learn how to use python to develop NLP.
     Hamilton   Mythology  ....144
 ```
 
-* Date Formating
+#### Date Formating
 
 ```python
     from datetime import datetime
@@ -95,18 +95,63 @@ An Online course to learn how to use python to develop NLP.
 ```
 
 
-* Ｗorking with Text file
+#### Ｗorking with Text file
 
 ```python
     #Create a file
     %%writefile test.txt
     Hello, this is a quick test file.
     This is the second line of the file.
-
-
+    
+    #append the content
+    %%writefile -a test.txt
+    This is more text being appended to test.txt
+    And another line here.
+    
+    #Open the file
+    my_file = open('test.txt')
+    
+    # We can now read the file
+    my_file.read()
+    >>> 'Hello, this is a quick test file.\nThis is the second line of the file.'
+    
+    # But what happens if we try to read it again?
+    my_file.read()
+    >>> ''
+    
     # 指定文件讀取位置
     myfile.seek(0)
     >>> 0
 
+    # Readlines returns a list of the lines in the file
+    my_file.seek(0)
+    my_file.readlines()
+    >>> ['Hello, this is a quick test file.\n', 'This is the second line of the file.']
+    
+    my_file.close()
+    
+    
+    # Add a second argument to the function, 'w' which stands for write.
+# Passing 'w+' lets us read and write to the file
+    #It will overwrite.
+    my_file = open('test.txt','w+')
+    
+    #append
+    my_file = open('test.txt','a+')
+    my_file.write('\nThis line is being appended to test.txt')
+    my_file.write('\nAnd another line here.')
+```
+
+##### Aliases and Context Managers
+
+```python
+    #You can assign temporary variable names as aliases, and manage the opening and closing of files automatically using a context manager:
+    with open('test.txt','r') as txt:
+        first_line = txt.readlines()[0]
+    print(first_line)
+    
+    with open('test.txt','r') as txt:
+    for line in txt:
+        print(line, end='')  # the end='' argument removes extra linebreaks
 ```
 
