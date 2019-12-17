@@ -197,3 +197,79 @@ An Online course to learn how to use python to develop NLP.
     f.close()
     
 ```
+
+### Regular Expression
+
+```python
+
+    text = "The agent's phone number is 408-555-1234. Call soon!"
+    import re
+    pattern = 'phone'
+    re.search(pattern,text)
+    >>> <_sre.SRE_Match object; span=(12, 17), match='phone'>
+    
+    match = re.search(pattern,text)
+    match.span()
+    >>> (12, 17)
+    match.start()
+    >>> 12
+    match.start()
+    >>> 17
+```
+
+#### .findall()
+
+```python
+    # Notice it only matches the first instance. If we wanted a list of all matches, we can use .findall() method:
+    matches = re.findall("phone",text)
+    matches
+    >>> ['phone', 'phone']
+    len(matches)
+    >>> 2
+    
+    for match in re.finditer("phone",text):
+    print(match.span())
+    >>> (3, 8)
+(18, 23)
+
+    #If you wanted the actual text that matched, you can use the .group() method.
+    match.group()
+    >>> 'phone'
+
+```
+
+#### Identifiers for Characters in Patterns
+
+| Character | Description | Example Pattern Code | Exammple Match |
+| -------- | -------- | -------- |-------- |
+| \d    | A digit     | file_\d\d     |file_25     |
+| \w    | Alphanumeric     | \w-\w\w\w     |A-b_1     |
+| \s    | White space     | a\sb\sc     |a b c     |
+| \D    | A non digit     | \D\D\D     |ABC     |
+| \W    | Non-alphanumeric     | \W\W\W\W\W     |*-+=)     |
+| \S    | Non-whitespace     | \S\S\S\S     |Yoyo    |
+
+Example:
+
+```python
+
+    text = "My telephone number is 408-555-1234"
+    phone = re.search(r'\d\d\d-\d\d\d-\d\d\d\d',text)
+    phone.group()
+    >>> '408-555-1234'
+
+```
+
+####  Quantifiers
+> Notice the repetition of \d. That is a bit of an annoyance, especially if we are looking for very long strings of numbers. Let's explore the possible quantifiers.
+
+
+| Character | Description | Example Pattern Code | Exammple Match |
+| -------- | -------- | -------- |-------- |
+| \d    | A digit     | file_\d\d     |file_25     |
+| \w    | Alphanumeric     | \w-\w\w\w     |A-b_1     |
+| \s    | White space     | a\sb\sc     |a b c     |
+| \D    | A non digit     | \D\D\D     |ABC     |
+| \W    | Non-alphanumeric     | \W\W\W\W\W     |*-+=)     |
+| \S    | Non-whitespace     | \S\S\S\S     |Yoyo    |
+
