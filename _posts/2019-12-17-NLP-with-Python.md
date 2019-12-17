@@ -29,7 +29,7 @@ An Online course to learn how to use python to develop NLP.
 ```
 
 ### 基本文字處理
-- 列印文字
+#### 列印文字
 
 ```python
     person = "aaron"
@@ -52,7 +52,7 @@ An Online course to learn how to use python to develop NLP.
     >> Address: 123 Main Street
 ```
 
-- Minimum Widths, Alignment and Padding
+#### Minimum Widths, Alignment and Padding
 > You can pass arguments inside a nested set of curly braces to set a minimum width for the field, the alignment and even padding characters.
 
 ```python
@@ -83,7 +83,7 @@ An Online course to learn how to use python to develop NLP.
     Hamilton   Mythology  ....144
 ```
 
-* Date Formating
+#### Date Formating
 
 ```python
     from datetime import datetime
@@ -95,18 +95,181 @@ An Online course to learn how to use python to develop NLP.
 ```
 
 
-* Ｗorking with Text file
+#### Ｗorking with Text file
 
 ```python
     #Create a file
     %%writefile test.txt
     Hello, this is a quick test file.
     This is the second line of the file.
-
-
+    
+    #append the content
+    %%writefile -a test.txt
+    This is more text being appended to test.txt
+    And another line here.
+    
+    #Open the file
+    my_file = open('test.txt')
+    
+    # We can now read the file
+    my_file.read()
+    >>> 'Hello, this is a quick test file.\nThis is the second line of the file.'
+    
+    # But what happens if we try to read it again?
+    my_file.read()
+    >>> ''
+    
     # 指定文件讀取位置
     myfile.seek(0)
     >>> 0
 
+    # Readlines returns a list of the lines in the file
+    my_file.seek(0)
+    my_file.readlines()
+    >>> ['Hello, this is a quick test file.\n', 'This is the second line of the file.']
+    
+    my_file.close()
+    
+    
+    # Add a second argument to the function, 'w' which stands for write.
+# Passing 'w+' lets us read and write to the file
+    #It will overwrite.
+    my_file = open('test.txt','w+')
+    
+    #append
+    my_file = open('test.txt','a+')
+    my_file.write('\nThis line is being appended to test.txt')
+    my_file.write('\nAnd another line here.')
 ```
+
+##### Aliases and Context Managers
+
+```python
+    #You can assign temporary variable names as aliases, and manage the opening and closing of files automatically using a context manager:
+    with open('test.txt','r') as txt:
+        first_line = txt.readlines()[0]
+    print(first_line)
+    
+    with open('test.txt','r') as txt:
+    for line in txt:
+        print(line, end='')  # the end='' argument removes extra linebreaks
+```
+
+### Working with PDF
+
+> It's common to use **PyPDF2** to read the text. But it may not work because of the encoding issues or image.
+
+```python
+
+    import PyPDF2
+    
+    #First we open a pdf, then create a reader object for it. Notice how we use the binary method of reading , 'rb', instead of just 'r'.
+    
+    # Notice we read it as a binary with 'rb'
+    f = open('US_Declaration.pdf','rb')
+    
+    pdf_reader = PyPDF2.PdfFileReader(f)
+    
+    pdf_reader.numPages
+    page_one = pdf_reader.getPage(0)
+    
+    #We can then extract the text:
+    page_one_text = page_one.extractText()
+    
+    f.close()
+    
+```
+
+#### Adding to PDFs
+
+```python
+    f = open('US_Declaration.pdf','rb')
+    pdf_reader = PyPDF2.PdfFileReader(f)
+    
+    first_page = pdf_reader.getPage(0)
+    pdf_writer = PyPDF2.PdfFileWriter()
+    pdf_writer.addPage(first_page)
+    
+    pdf_output = open("Some_New_Doc.pdf","wb")
+    pdf_writer.write(pdf_output)
+    
+    pdf_output.close()
+    f.close()
+    
+```
+
+### Regular Expression
+
+```python
+
+    text = "The agent's phone number is 408-555-1234. Call soon!"
+    import re
+    pattern = 'phone'
+    re.search(pattern,text)
+    >>> <_sre.SRE_Match object; span=(12, 17), match='phone'>
+    
+    match = re.search(pattern,text)
+    match.span()
+    >>> (12, 17)
+    match.start()
+    >>> 12
+    match.start()
+    >>> 17
+```
+
+#### .findall()
+
+```python
+    # Notice it only matches the first instance. If we wanted a list of all matches, we can use .findall() method:
+    matches = re.findall("phone",text)
+    matches
+    >>> ['phone', 'phone']
+    len(matches)
+    >>> 2
+    
+    for match in re.finditer("phone",text):
+    print(match.span())
+    >>> (3, 8)
+(18, 23)
+
+    #If you wanted the actual text that matched, you can use the .group() method.
+    match.group()
+    >>> 'phone'
+
+```
+
+#### Identifiers for Characters in Patterns
+
+| Character | Description | Example Pattern Code | Exammple Match |
+| -------- | -------- | -------- |-------- |
+| \d    | A digit     | file_\d\d     |file_25     |
+| \w    | Alphanumeric     | \w-\w\w\w     |A-b_1     |
+| \s    | White space     | a\sb\sc     |a b c     |
+| \D    | A non digit     | \D\D\D     |ABC     |
+| \W    | Non-alphanumeric     | \W\W\W\W\W     |*-+=)     |
+| \S    | Non-whitespace     | \S\S\S\S     |Yoyo    |
+
+Example:
+
+```python
+
+    text = "My telephone number is 408-555-1234"
+    phone = re.search(r'\d\d\d-\d\d\d-\d\d\d\d',text)
+    phone.group()
+    >>> '408-555-1234'
+
+```
+
+####  Quantifiers
+> Notice the repetition of \d. That is a bit of an annoyance, especially if we are looking for very long strings of numbers. Let's explore the possible quantifiers.
+
+
+| Character | Description | Example Pattern Code | Exammple Match |
+| -------- | -------- | -------- |-------- |
+| \d    | A digit     | file_\d\d     |file_25     |
+| \w    | Alphanumeric     | \w-\w\w\w     |A-b_1     |
+| \s    | White space     | a\sb\sc     |a b c     |
+| \D    | A non digit     | \D\D\D     |ABC     |
+| \W    | Non-alphanumeric     | \W\W\W\W\W     |*-+=)     |
+| \S    | Non-whitespace     | \S\S\S\S     |Yoyo    |
 
