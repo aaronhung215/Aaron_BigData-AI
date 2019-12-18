@@ -263,13 +263,112 @@ Example:
 ####  Quantifiers
 > Notice the repetition of \d. That is a bit of an annoyance, especially if we are looking for very long strings of numbers. Let's explore the possible quantifiers.
 
+![](https://i.imgur.com/biZn0LJ.png)
 
-| Character | Description | Example Pattern Code | Exammple Match |
-| :-----------: | :-----------: | :----------------: |:-----------: |
-| \d    | A digit     | file_\d\d     |file_25     |
-| \w    | Alphanumeric     | \w-\w\w\w     |A-b_1     |
-| \s    | White space     | a\sb\sc     |a b c     |
-| \D    | A non digit     | \D\D\D     |ABC     |
-| \W    | Non-alphanumeric     | \W\W\W\W\W     |*-+=)     |
-| \S    | Non-whitespace     | \S\S\S\S     |Yoyo    |
+```python
+    #use quantifier to match
+    re.search(r'\d{3}-\d{3}-\d{4}',text)
+```
 
+#### Groups
+> - What if we wanted to do two tasks, find phone numbers, but also be able to quickly extract their area code (the first three digits). We can use groups for any general task that involves grouping together regular expressions (so that we can later break them down). 
+> - Using the phone number example, we can separate groups of regular expressions using parentheses:
+```python
+    phone_pattern = re.compile(r'(\d{3})-(\d{3})-(\d{4})')
+
+    results = re.search(phone_pattern,text)
+
+    # The entire result
+    results.group()
+    >>> '408-555-1234'
+    
+```
+
+#### Additional Regex Syntax
+- Or operator |
+
+```python
+    re.search(r"man|woman","This man was here.")
+    >>> <_sre.SRE_Match object; span=(5, 8), match='man'>
+    re.search(r"man|woman","This woman was here.")
+    >>> <_sre.SRE_Match object; span=(5, 10), match='woman'>
+
+```
+
+#### The Wildcard Character
+> Use a "wildcard" as a placement that will match any character placed there. You can use a simple period . for this. For example:
+
+```python
+
+    re.findall(r".at","The cat in the hat sat here.")
+
+    #取字尾
+    # One or more non-whitespace that ends with 'at'
+    re.findall(r'\S+at',"The bat went splat")
+    >>> ['bat', 'splat']
+```
+
+#### Starts With and Ends With
+> We can use the ^ to signal starts with, and the $ to signal ends with:
+
+```python
+
+    # Ends with a number
+    re.findall(r'\d$','This ends with a number 2')
+
+    # Starts with a number
+    re.findall(r'^\d','1 is the loneliest number.')
+    
+    #To get the each word
+    phrase = "there are 3 numbers 34 inside 5 this sentence."
+    re.findall(r'[^\d]+',phrase)
+    >>> ['there are ', ' numbers ', ' inside ', ' this sentence.']
+    
+    #remove punctuation
+    test_phrase = 'This is a string! But it has punctuation. How can we remove it?'
+    
+    re.findall('[^!.? ]+',test_phrase)
+    >>> 
+    ['This',
+     'is',
+     'a',
+     'string',
+     'But',
+     'it',
+     'has',
+     'punctuation',
+     'How',
+     'can',
+     'we',
+     'remove',
+     'it']
+
+    clean = ' '.join(re.findall('[^!.? ]+',test_phrase))
+    >>> 'This is a string But it has punctuation How can we remove it'
+```
+
+#### Brackets for Grouping
+> As we showed above we can use brackets to group together options, for example if we wanted to find hyphenated words:
+
+```python
+
+    text = 'Only find the hypen-words in this sentence. But you do not know how long-ish they are'
+    re.findall(r'[\w]+-[\w]+',text)
+    >>> ['hypen-words', 'long-ish']
+
+```
+
+#### Parentheses for Multiple Options
+> If we have multiple options for matching, we can use parentheses to list out these options. For Example:
+
+```python
+    # Find words that start with cat and end with one of these options: 'fish','nap', or 'claw'
+    text = 'Hello, would you like some catfish?'
+    texttwo = "Hello, would you like to take a catnap?"
+    re.search(r'cat(fish|nap|claw)',text)
+    >>> <_sre.SRE_Match object; span=(27, 34), match='catfish'>
+    
+    re.search(r'cat(fish|nap|claw)',texttwo)
+    >>> <_sre.SRE_Match object; span=(32, 38), match='catnap'>
+
+```
