@@ -3,8 +3,10 @@ layout: post
 title: Developing Python Packages
 date: 2021-12-22
 tags: datacamp, python, test
+categories: datacamp python test
 comments: true
 ---
+
 # Developing Python Packages
 
 ## Lesson 1
