@@ -1,5 +1,5 @@
 ---
-layout: xxxx
+layout: post
 title: Developing Python Packages
 date: 2021-12-22
 tags: datacamp, python, test
