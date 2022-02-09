@@ -55,5 +55,6 @@ theme: jekyll-theme-slate
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitemap
 #  - jekyll-feed
 remote_theme: thelehhman/plainwhite-jekyll
