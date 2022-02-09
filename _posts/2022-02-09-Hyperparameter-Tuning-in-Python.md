@@ -1,13 +1,13 @@
 ---
-layout: xxxx
+layout: post
 title: Hyperparameter Tuning in Python
 date: 2022-02-09
 tags: datacamp, python, hyperparameter
+categories: datacamp python hyperparameter
 comments: true
 ---
 
 ## Lesson 1 : Hyperparameters and Parameters
-
 
 ### Parameter
 ```python 
