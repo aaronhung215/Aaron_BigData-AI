@@ -6,9 +6,6 @@ tags: datacamp, python, test
 categories: datacamp python test
 comments: true
 ---
-
-# Developing Python Packages
-
 ## Lesson 1
 * reuse
 * key function up to date
