@@ -3,9 +3,13 @@ layout: post
 title: Developing Python Packages
 date: 2021-12-22
 tags: datacamp, python, test
-categories: datacamp python test
 comments: true
 ---
+
+Introduce how to develop python package with easy framework
+
+# Developing Python Packages
+
 ## Lesson 1
 * reuse
 * key function up to date

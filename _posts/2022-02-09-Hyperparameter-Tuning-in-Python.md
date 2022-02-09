@@ -7,6 +7,8 @@ categories: datacamp python hyperparameter
 comments: true
 ---
 
+Introduce how to tune the hyperparameter of models with different way efficiently.
+
 ## Lesson 1 : Hyperparameters and Parameters
 
 ### Parameter
