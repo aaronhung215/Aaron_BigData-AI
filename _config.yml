@@ -16,7 +16,7 @@ plainwhite:
   name: Aaron Hung
   tagline: Data Scientist
   date_format: "%b %-d, %Y"
-  sitemap: true # set to true to generate sitemap.xml content
+  sitemap: false # set to true to generate sitemap.xml content
   disqus_shortname: Aaron
   analytics_id: 'UA-58024657-6'
   # generate social links in footer
@@ -52,7 +52,8 @@ plainwhite:
 
 # Build settings
 theme: jekyll-theme-slate
-
+sitemap:
+  path: sitemap.xml
 plugins:
   - jekyll-seo-tag
 #  - jekyll-feed
