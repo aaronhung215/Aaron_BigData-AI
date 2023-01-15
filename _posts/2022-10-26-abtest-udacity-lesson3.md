@@ -2,7 +2,7 @@
 layout: post
 title: A/B Testing - Lesson3 Choosing and Characterizing Metrics
 date: 2022-10-26
-categories: tag1 tag2
+categories: ABtest metric
 comments: true
 ---
 
