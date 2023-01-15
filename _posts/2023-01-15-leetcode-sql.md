@@ -7,6 +7,7 @@ categories: leetcode sql
 comments: true
 ---
 
+Leetcode sql practice
 
 # Leetcode - SQL
 1. https://leetcode.com/problems/second-highest-salary/
