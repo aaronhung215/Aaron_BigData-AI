@@ -6,6 +6,9 @@ tags: datacamp, python, keras, a/b test
 categories: datacamp python keras a/b test
 comments: true
 ---
+
+A/B test case study and python sample code
+
 ## Leeson 1  *Key Performance Indicators: Measuring Business Success*
 * Process
 ![](https://i.imgur.com/YhIBjIy.png)

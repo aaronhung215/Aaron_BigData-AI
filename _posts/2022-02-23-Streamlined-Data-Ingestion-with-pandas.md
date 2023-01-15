@@ -7,6 +7,8 @@ categories: datacamp python dataingestion
 comments: true
 ---
 
+Data ingestion practice
+
 ## Lesson 1 : *Importing Data from Flat Files*
 * Pandas
 * Modifying flat file imports
