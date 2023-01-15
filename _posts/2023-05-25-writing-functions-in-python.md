@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Writing Functions in Python
-date: 2023-01-15
+date: 2022-05-25
 tags: python
 categories: python
 comments: true
