@@ -7,6 +7,8 @@ categories: wordembedding vector
 comments: true
 ---
 
+Word embedding memo
+
 # Word Embedding
 * Bag of words (BoW)
 BoW 是一種將句子拆解成每個詞出現次數的方法，例如我將以下兩個句子拆解
