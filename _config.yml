@@ -22,7 +22,7 @@ plainwhite:
   date_format: "%b %-d, %Y"
   sitemap: false # set to true to generate sitemap.xml content
   disqus_shortname: Aaron
-  analytics_id: 'UA-58024657-6'
+  analytics_id: 'G-M8TG2D4XZZ'
   # generate social links in footer
   social_links:
     line: freedom079215
